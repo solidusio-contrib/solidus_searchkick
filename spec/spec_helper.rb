@@ -23,7 +23,7 @@ require 'solidus_searchkick/factories'
 
 RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
-  config.include Devise::TestHelpers, type: :controller
+  config.include Devise::Test::ControllerHelpers, type: :controller
   # Infer an example group's spec type from the file location.
   config.infer_spec_type_from_file_location!
 
