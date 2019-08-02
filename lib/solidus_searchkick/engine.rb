@@ -11,11 +11,14 @@ module SolidusSearchkick
       g.test_framework :rspec
     end
 
+    initializer "solidus_auth_devise.set_user_class", after: :load_config_initializers do
+      Spree::Config.searcher_class = Spree::Search::Searchkick
+    end
+
     def self.activate
       Dir.glob(File.join(File.dirname(__FILE__), '../../app/**/*_decorator*.rb')) do |c|
         Rails.configuration.cache_classes ? require(c) : load(c)
       end
-      Spree::Config.searcher_class = Spree::Search::Searchkick
     end
 
     config.to_prepare &method(:activate).to_proc
