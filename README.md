@@ -20,7 +20,7 @@ Add searchkick and solidus_searchkick to your Gemfile:
 
 ```ruby
 gem 'searchkick'
-gem 'solidus_searchkick'
+gem 'solidus_searchkick', github: 'solidusio-contrib/solidus_searchkick'
 ```
 
 Bundle your dependencies and run the installation generator:
