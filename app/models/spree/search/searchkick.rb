@@ -129,8 +129,7 @@ module Spree::Search
       @properties[:query] = params[:query].blank? ? nil : params[:query]
       @properties[:filters] = params[:filter].blank? ? nil : params[:filter]
       @properties[:fields] = params[:fields].blank? ? nil : params[:fields]
-      @properties[:searchkick_options] = params[:searchkick_options].blank? ? {} : params[:searchkick_options].deep_symbolize_keys
-      params = params.deep_symbolize_keys
+      @properties[:searchkick_options] = params[:searchkick_options].blank? ? {} : params[:searchkick_options]
       super
     end
   end
