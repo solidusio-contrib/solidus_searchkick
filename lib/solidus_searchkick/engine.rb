@@ -4,7 +4,7 @@ require 'spree/core'
 
 module SolidusSearchkick
   class Engine < Rails::Engine
-    include SolidusSupport::EngineExtensions::Decorators
+    include SolidusSupport::EngineExtensions
 
     isolate_namespace ::Spree
 
@@ -23,7 +23,7 @@ module SolidusSearchkick
       unless ::Spree::Product.try(:searchkick_options)
         ::Spree::Product.class_eval do
           searchkick(
-            index_name: "#{Rails.application.class.parent_name.parameterize.underscore}_spree_products_#{Rails.env}",
+            index_name: "#{Rails.application.class.name.parameterize.underscore}_spree_products_#{Rails.env}",
             word_start: [:name]
           )
         end
